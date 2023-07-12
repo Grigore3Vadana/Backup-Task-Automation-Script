@@ -1,18 +1,20 @@
 #!/bin/bash
 
 #source directory for backup
-src_dir="/home/grig/Documents"
+src_dir="/path/to/source/directory"
 
 #destination directory for backup
-dest_dir="/home/grig/Backup"
+dest_dir="/path/to/destionation/directory"
 
-#the name of backup file
+#backup file name
 backup_file="backup_$(date +%Y_%m_%d_%H_%M_%S).tar.gz"
 
+#creating the backup archive
 tar -czvf "$dest_dir/$backup_file" "$src_dir"
 
+#checking the result of the backup creation
 if [ $? -eq 0 ]; then
 echo "backup created successfully"
 else
-echo "error creating backup"
+echo "error creating the backup"
 fi
